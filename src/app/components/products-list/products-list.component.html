@@ -1,0 +1,23 @@
+
+<!--Estructura de html del componente padre, donde voy a tener los 3 componentes hijos, uno para filtrar los
+productos , otro para sacarme la lista de productos y poder eliminar , y para dar de alta un producto nuevo-->
+<section class="container mt-3">
+     
+    <hr>
+    <app-products-filter (filtrarProductos)= "filtrar($event)"></app-products-filter>
+    <hr>
+    <hr>
+    <h2 class="text-center">Mis productos</h2>
+    <div class="row g-2 mt-3">
+        @for(producto of productos;track producto._id) {
+            <article class="col-12 col-md-6 col-lg-4">
+                <app-products-card [miProducto]= "producto"   (delete)= "ProductDelete($event)" ></app-products-card>
+            </article>
+        }@empty {
+            <h2>No hay productos</h2>
+        }
+    </div>
+    <hr>
+    <app-products-form  (altaProductos)= "addProduct($event)"></app-products-form>
+    
+</section>

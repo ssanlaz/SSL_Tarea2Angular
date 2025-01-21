@@ -1,0 +1,33 @@
+
+.product-image {
+  object-fit: cover; /* Ajusta la imagen sin deformarla */
+  width: 100%; /* Asegura de que ocupa todo el ancho del contenedor */
+  height:700px; /* Ajusta esta altura según lo que necesites */
+  border-radius: 8px; /* Opcional: Bordes redondeados */
+  object-position: center;
+ 
+}
+
+  .card {
+    display: flex;
+    flex-direction: column; /* Elementos en columna */
+    justify-content: space-between; /* Distribuye espacio interno */
+    min-height: 450px; /* Altura mínima consistente */
+  }
+  
+  .card .list-group {
+    flex-grow: 1; /* Hace que la lista ocupe todo el espacio disponible */
+  }
+  
+  /* Alineación del botón */
+  .btn {
+    align-self: center; /* Centra el botón en el contenedor */
+  }
+  .product-title {
+    width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+    height: 90px; /* Define una altura fija */
+    text-align: center; /* Centra el texto horizontalmente */
+  
+    font-size: 22px; /* Tamaño uniforme para el texto */
+    
+  }

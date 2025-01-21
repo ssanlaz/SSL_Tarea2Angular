@@ -1,0 +1,35 @@
+<!--Formulario templete para filtros de busqueda-->
+<section class="container mt-3">
+    <h2 class="text-center">Filtro de Productos</h2>
+    <hr>
+    <div class="card shadow bg-success-subtle p-3">
+        <form #miFiltro = "ngForm" (ngSubmit)="getDataFilter(miFiltro)">
+            <div class="mb-3 d-flex flex-column">
+                <label for="name" class="form-label mt-3 mb-3">Nombre</label>
+                <input class="form-control" type="text" id="name" placeholder="Introduce el nombre del producto" name="name" [(ngModel)]= "filtro.name">
+            </div>
+            <div class="mb-3 d-flex flex-column">
+                <label for="category" class="form-label mt-3">Categoria</label>
+                <select class="form-select" id="category"  name="category" [(ngModel)]= "filtro.category">
+                    <option value="">Elige una opcion</option>
+                    <option value="mujer">Mujer</option>
+                    <option value="hombre">Hombre</option>
+                    <option value="niño">Niño</option>
+                </select>
+            </div>
+            <div class="mb-3 d-flex flex-column">
+                <label for="price" class="form-label mt-3">Precio</label>
+                <input class="form-control" type="number" id="price" placeholder="Cantidad maxima" name="price" [(ngModel)]= "filtro.price">
+            </div>
+            <div class="mb-3 d-flex flex-column">
+                <label for="active" class="form-label mt-3">Activos</label>
+                <input class="form-check-input" type="checkbox" id="active"  name="active" [(ngModel)]= "filtro.active">
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+                <button type="submit" class="btn btn-success">Filtrar</button>
+                <button type="button" class="btn btn-secondary ms-2" (click)="resetear()">Limpiar Filtros</button>
+              </div>
+        </form>
+    </div>
+
+</section>

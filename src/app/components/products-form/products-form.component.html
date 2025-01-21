@@ -1,0 +1,76 @@
+
+<!--Formulario para dar de alta un producto, con validadores, y que salga en la lista de productos-->
+
+<section class="container mt-3">
+    <h3 class="text-center">Alta de nuevo Producto</h3>
+    <hr>
+    <div class="card shadow bg-success-subtle p-3">
+    <form [formGroup]= "modelForm" (ngSubmit)= "getDataForm()">
+        <div class="my-2">
+            <label for="name" class="form-label">Nombre :</label>
+            <input type="text" class="form-control mb-3" placeholder="Escribe el nombre del producto" id="name" formControlName="name">
+            @if(checkControl('name','required')){
+                <p class="error">Campo Obligatorio</p>
+            }
+            @if(checkControl('name','minlength')){
+                <p class="error">El nombre debe tener al menos 3 caracteres</p>
+            }
+           
+
+        </div>
+        <div class="my-2">
+            <label for="description" class="form-label">Descripcion del Producto :</label>
+            <textarea rows="3" class="form-control mb-3" placeholder="Escribe la descripcion del producto" id="description" formControlName="description"></textarea>
+            @if(checkControl('description','required')){
+                <p class="error">Campo Obligatorio</p>
+            }
+            @if(checkControl('description','minlength')){
+                <p class="error">La descripcion debe tener al menos 10 caracteres</p>
+            }
+        </div>
+        <div class="my-2">
+            <label for="price" class="form-label">Precio  :</label>
+            <input type="number" class="form-control mb-3" placeholder="Escribe el precio del producto" id="price" formControlName="price">
+            @if(checkControl('price','required')){
+                <p class="error">Campo Obligatorio</p>
+            }
+            @if(checkControl('price','min')){
+                <p class="error">El precio debe ser mayor a 0€</p>
+            }
+        </div>
+        <div class="my-2">
+            <label for="category" class="form-label">Categoria :</label>
+            <select  class="form-select" id="category" formControlName="category">
+                <option value="" selected >Selecciona una categoria</option>
+                <option value="hombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+                <option value="niño">Niño</option>
+            </select>
+            @if(checkControl('category','required')){
+                <p class="error">Debe seleccionar una opcion</p>
+            }
+            
+        </div>
+        <div class="my-2">
+            <label for="image" class="form-label">URL de la imagen :</label>
+            <input type="text" class="form-control mb-3"  id="image" formControlName="image" placeholder="Introduce la imagen del producto">
+            @if(checkControl('image','required')){
+            <p class="error">Campo obligatorio</p>
+            }
+            @if(checkControl('image','pattern')){
+                <p class="error">Campo Obligatorio, solo permitidos archivos .jpg, .jpeg,.png o img</p>
+            }
+            
+            
+        </div>
+        <div class="my-2">
+            <label for="active" class="form-check mb-3">Activa :</label>
+            <input type="checkbox" class="form-check-input"  id="active" formControlName="active">
+            @if(checkControl('active','required')){
+                <p class="error">Debe seleccionar una opcion</p>
+            }
+        </div>
+        <input type="submit" value="Enviar" class="btn btn-success" [disabled]="!modelForm.valid"> 
+    </form>
+    </div>
+</section>

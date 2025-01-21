@@ -1,0 +1,21 @@
+<!--Html creado para mostrar los productos que tenemos en la Api y los nuevos que demos de alta-->
+
+<div class="card shadow h-100">
+
+    <h3 class="card-header text-center product-title" >{{miProducto.name}}</h3>
+    <div class="text-center my-2" >
+        <!-- Mostrar la imagen -->
+        <img [src]= "miProducto.image" class="img-fluid product-image">
+      </div>
+      <hr>
+    <ul class="list-group m-1">
+        <li class="list-group-item bg-success-subtle"><strong>Id: </strong> {{miProducto._id}}</li>
+        <li class="list-group-item bg-success-subtle"><strong>Descripcion: </strong> {{miProducto.description}}</li>
+        <li class="list-group-item bg-success-subtle"><strong>Precio: </strong> {{miProducto.price}} €</li>
+        <li class="list-group-item bg-success-subtle"><strong>Categoria: </strong> {{miProducto.category}} </li>
+        <li class="list-group-item bg-success-subtle"><strong>Activo: </strong> {{miProducto.active ? 'Si' : 'No'}}</li>
+    </ul>
+    <div class="mt-auto p-3 text-center">
+    <button class="btn btn-danger mt-2" (click)="onDelete()">Eliminar</button>
+</div>
+</div>
